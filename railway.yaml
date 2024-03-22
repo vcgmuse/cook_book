@@ -1,0 +1,5 @@
+name: my-flask-app
+port: 3000
+env: python
+buildCommand: pipenv install --dev
+runCommand: flask run --host=0.0.0.0 --port=$PORT
