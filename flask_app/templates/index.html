@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename=('/css/styles.css'))}}">
+    <title>Login</title>
+</head>
+<body>
+    <main>
+        
+        <div class="">
+            <form action="/register/user" method="post">
+                <h2 class="register-header">Register</h2>
+                First Name: <input id="first_name" name="first_name" type="text">
+                Last Name: <input id="last_name" name="last_name" type="text">
+                Email: <input id="email" name="email" type="email">
+                Password: <input id="password" name="password" type="password">
+                Confirm Password: <input id="confirm_password" name="confirm_password" type="password">
+                <button class="register">Register</button>
+                <div class="info">
+                    Password Must Contain:
+                    <ul>
+                        <li>At least one letter (uppercase or lowercase)</li>
+                        <li>At least one digit</li>
+                        <li>At least one special character from the set [@$!%*?&]</li>
+                        <li>Minimum length of 8 characters"</li>
+                    </ul>
+                </div>
+            </form>
+            {% with messages = get_flashed_messages(with_categories=True)%}
+                {% for category, message in messages %}
+                    {% if category == "error" %}
+                    <p class="{{category}}">{{message}}</p>
+                    {% endif %}
+                {% endfor %}
+            {% endwith %}
+        </div>
+        <div class="">
+            <form action="/login" method="post">
+                <h2 class="login-header">Login</h2>
+                Email: <input id="login_email" name="email" type="email">
+                Password: <input id="login_password" name="password" type="password">
+                <button class="login">Login</button>
+            </form>
+            
+        </div>
+    </main>
+
+    
+</body>
+</html>

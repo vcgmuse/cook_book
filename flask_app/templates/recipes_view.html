@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename=('/css/styles.css'))}}">
+
+    <title>Welcome</title>
+</head>
+<body>
+    <main>
+        <div class="recipe_header">
+            <div class="top">
+                <h1>Welcome {{session.first_name}}</h1>
+                <div class="action">
+                    <a href="/recipes">Back to Recipes</a>
+                    <a href="/user/logout">Logout</a>
+                </div>
+            </div>
+            <div class="bottom">
+                <h2>Recipe Name: {{recipe.name}}</h2>
+                <h2>Posted By: {{recipe.user.first_name}}</h2>
+            </div>
+        </div>
+        <div class="recipe_body">
+            <ul>
+                <li>
+                    <div class="field">Description:</div>
+                    <div class="value">{{recipe.description}}</div>
+                </li>
+                <li>
+                    <div class="field">Under 30 Minutes?</div>
+                    <div class="value">{{recipe.under}}</div>
+                </li>
+                <li>
+                    <div class="field">Instructions:</div>
+                    <div class="value">{{recipe.instruction}}.</div>
+                </li>
+                <li>
+                    <div class="field">Date Made:</div>
+                    <div class="value">{{recipe.date_made}}</div>
+                </li>
+            </ul>
+        </div>
+        
+    </main>
+</body>
+</html>
